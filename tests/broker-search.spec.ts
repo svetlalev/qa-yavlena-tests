@@ -10,7 +10,9 @@ test('Search for each broker', async ({brokersPage}) => {
     await expect(brokersPage.brokerNameLink).toHaveCount(1)
     await expect(brokersPage.brokerNameLink).toHaveText(broker)
     await expect(brokersPage.brokerAddressDiv).toBeVisible()
-    await expect.soft(brokersPage.phoneNumberSpan).toHaveCount(2)
+    await expect
+      .soft(brokersPage.phoneNumberSpan, `${broker} has ${await brokersPage.phoneNumberSpan.count()} phone number(s).`)
+      .toHaveCount(2)
     await expect(brokersPage.brokerNumberOfPropertiesDiv).toBeVisible()
   }
 })
