@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "A Playwright project with test for Yavlena",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "setup": "npm install && npx playwright install",
+    "lint": "npx eslint ."
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
