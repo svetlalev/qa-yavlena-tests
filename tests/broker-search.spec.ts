@@ -1,10 +1,8 @@
-import {expect, test} from '@playwright/test'
-import {BrokersPage} from '@support/pages/brokersPage'
+import {expect, test} from '@base/fixtures'
 
-test('Search for broker', async ({page}) => {
+test('Search for each broker', async ({brokersPage}) => {
   test.setTimeout(240000) //setting huge timeout as it takes a lot of time to go through all brokers
-  const brokersPage = new BrokersPage(page)
-  await brokersPage.goto()
+
   const brokerNames: string[] = await brokersPage.getAllBrokerNames()
 
   for (const broker of brokerNames) {
